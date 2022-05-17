@@ -10,11 +10,31 @@ echo "
 "
 sleep 5
 
+function voteCheck() {
+
 wget https://localelection.ekantipur.com/pradesh-3/district-kathmandu/kathmandu?lng=eng
-cp kathmandu* final.txt
-sed -e "s/.\{380\}/&\n/g" < final.txt | grep 'Balendra\|Keshav' > election.txt
-sed -e "s/.\{48\}/&\n/g" < election.txt
-cat election.txt | grep 'candidate-name\|vote-numbers' > ultimate-balen.txt
-sed -e "s/.\{16\}/&\n/g" < ultimate-balen.txt > lauro.txt
+mkdir mayor
+mv kathmandu* mayor/
+cp mayor/kathmandu* mayor/final.txt
+sed -e "s/.\{380\}/&\n/g" < mayor/final.txt | grep 'Balendra\|Keshav' > mayor/election.txt
+sed -e "s/.\{48\}/&\n/g" < mayor/election.txt
+cat mayor/election.txt | grep 'candidate-name\|vote-numbers' > mayor/ultimate-balen.txt
+sed -e "s/.\{16\}/&\n/g" < mayor/ultimate-balen.txt > mayor/lauro.txt
 clear
-sed -n -e 7p -e 8p -e 14p -e 30p -e 38p lauro.txt 
+sed -n -e 7p -e 8p -e 14p -e 30p -e 38p mayor/lauro.txt
+
+}
+
+function main() {
+echo "If you have the previous vote count then press Y or y to delete it.(y/n)"
+read vote
+if [[ "$vote" == "Y" || "y" ]]
+then
+  sudo rm -rf mayor
+  voteCheck
+else
+  voteCheck
+fi
+}
+
+main
