@@ -21,8 +21,15 @@ sed -e "s/.\{48\}/&\n/g" < mayor/election.txt
 cat mayor/election.txt | grep 'candidate-name\|vote-numbers' > mayor/ultimate-balen.txt
 sed -e "s/.\{16\}/&\n/g" < mayor/ultimate-balen.txt > mayor/lauro.txt
 clear
-sed -n -e 8p -e 9p -e 15p -e 31p -e 39p mayor/lauro.txt
+sed -n -e 8p -e 9p -e 15p -e 31p -e 39p mayor/lauro.txt > mayor/finalresult.txt
+cat mayor/finalresult.txt
+echo ""
+sleep 1
+echo "Now difference in vote count"
+a=$(sed -n -e 3p mayor/finalresult.txt | awk {'print $1'} | sed -e "s/.\{7\}/&\n/g" | sed -n -e 2p)
+b=$(sed -n -e 5p mayor/finalresult.txt | awk {'print $1'} | sed -e "s/.\{6\}/&\n/g" | sed -n -e 2p)
 
+echo "Balen is leading the vote count by $(($a-$b))"
 }
 
 function main() {
