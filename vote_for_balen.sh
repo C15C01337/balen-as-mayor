@@ -21,7 +21,7 @@ sed -e "s/.\{48\}/&\n/g" < mayor/election.txt
 cat mayor/election.txt | grep 'candidate-name\|vote-numbers' > mayor/ultimate-balen.txt
 sed -e "s/.\{16\}/&\n/g" < mayor/ultimate-balen.txt > mayor/lauro.txt
 clear
-sed -n -e 7p -e 8p -e 14p -e 30p -e 38p mayor/lauro.txt
+sed -n -e 8p -e 9p -e 15p -e 31p -e 39p mayor/lauro.txt
 
 }
 
