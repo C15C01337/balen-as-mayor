@@ -27,7 +27,7 @@ echo ""
 sleep 1
 echo "Now difference in vote count"
 a=$(sed -n -e 3p mayor/finalresult.txt | awk {'print $1'} | sed -e "s/.\{7\}/&\n/g" | sed -n -e 2p)
-b=$(sed -n -e 5p mayor/finalresult.txt | awk {'print $1'} | sed -e "s/.\{6\}/&\n/g" | sed -n -e 2p)
+b=$(sed -n -e 5p mayor/finalresult.txt | awk {'print $1'} | sed -e "s/.\{9\}/&\n/g" | sed -n -e 2p)
 
 echo "Balen is leading the vote count by $(($a-$b))"
 }
