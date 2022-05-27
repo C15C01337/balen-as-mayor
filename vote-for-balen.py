@@ -41,11 +41,13 @@ def sunita():
 
 def main():
     print("Who will win this election? Balen VS Keshav VS Shrijana?")
+    print("Balen is elected.")
     balen()
     keshav()
     shirjana()
     print("")
     print("Deputy Mayor")
+    print("Sunita Dangol is elected.")
     sunita()
 
 main()
