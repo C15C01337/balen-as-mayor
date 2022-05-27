@@ -21,11 +21,11 @@ def balen():
         vote = each.find_next('div',{'class':'vote-numbers'})
         print("Balendra Shah: "+ vote.text)
 
-def keshav():
-    ldiv = soup.find_all("div", {"class": "candidate-name"}, text='Keshav Sthapit')
+def rameshwore():
+    ldiv = soup.find_all("div", {"class": "candidate-name"}, text='Rameshwore Shrestha')
     for each in ldiv:
         vcount = each.find_next('div',{'class':'vote-numbers'})
-        print("Keshav Sthapit: "+ vcount.text)
+        print("Rameshwore Shrestha: "+ vcount.text)
 
 def shirjana():
     sridiv = soup.find_all("div", {"class": "candidate-name"}, text='Shirjana Shrestha')
@@ -40,14 +40,14 @@ def sunita():
         print("Sunita Dangol: "+ scount.text)
 
 def main():
-    print("Who will win this election? Balen VS Keshav VS Shrijana?")
+    print("Who will win this election? Balen VS Shrijana?")
     print("Balen is elected.")
     balen()
-    keshav()
     shirjana()
     print("")
     print("Deputy Mayor")
     print("Sunita Dangol is elected.")
     sunita()
+    rameshwore()
 
 main()
